@@ -24,7 +24,7 @@ docker pull <image name>
   - Additioanly we can use flags
   
      - `--name <name> `- To give a name to the container.
-     - `-p <Host port:container port>`- To fowrad the port.
+     - `-p <Host port:container port>`- To forward the port.
      - `-d` - To run in detached mode
      - `-it` - For interactive envirnoment
      - `-e` - For environment variable
@@ -211,6 +211,11 @@ docker run -v <path-to-folder-on-local-machine>:<path-to-folder-on-container> -v
 ```
 To make it read only so that when you add some files inside it, the container will not get created on your local machine use `-v port:port:ro`
 
+- docker  volume command for mounting the docker socket to the docker container for accessing the host's docker daemon for performing the continuous integration in jenkins while using docker as a agent.. 
+```bash
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock docker-image:version bin/bash
+```
+
 ### Docker Compose
 
 - Run docker compose file.
@@ -262,7 +267,7 @@ docker node update --role manager <node-name>
 docker network create -d overlay backend
 ```
 
-- Create a service. Also we can add flags for further customiztaion.
+- Create a service. Also we can add flags for further customization.
 
     - `--name` - to give a service name
     - `--replicas` - to define how many running instance of the same image.
@@ -296,7 +301,7 @@ docker service update --image mynginx:1.13.6  web
 
 - To update the port
 
-We can't direclty update the port We have to add and remove the ports
+We can't directly update the port We have to add and remove the ports
 
 ```
 docker service update --publish-rm 8080 --publish-add 808180 <service name>

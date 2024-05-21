@@ -19,7 +19,7 @@ func greetUser() {
 	fmt.Println("Hello, welcome to the app")
 }
 
-func addTwoNumbers(a int, b int) int { // Function with Para
+func addTwoNumbers(a int, b int) int { // Function with Para and retun value
 	return a + b
 }
 
@@ -33,7 +33,7 @@ func addAndSubtract(a int, b int) (int, int) { // When we have mmultiple return 
 
 func proAdder(value ...int) int { // Function with variable number of parameters. value is a slice of int
 	sum := 0
-	for _, v := range value {
+	for _, v := range value { // value is a slice of int
 		sum += v
 	}
 	return sum
